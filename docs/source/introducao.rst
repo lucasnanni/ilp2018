@@ -22,12 +22,12 @@ Tipos primitivos
 
 Os tipos primitivos são números inteiros, valores lógicos e strings, representados respectivamente pelos tipos int, bool e string. 
 
+O tipo *string*
+~~~~~~~~~~~~~
+
+Dados do tipo string são constantes e não são indexados como na maioria das linguagens. O objetivo da existência do tipo string na linguagem é apenas fornecer uma maneira de apresentar (escrever) mensagens na tela. 
+
 Tipos Agregados (arranjo)
 -------------------------
 
 O tipo agregado é um arranjo de algum tipo primitivo. Dessa forma, podemos ter as variantes: arranjo de inteiros, arranjo de lógicos e arranjo de strings.  
-
-O tipo string
-^^^^^^^^^^^^^
-
-Dados do tipo string são constantes e não são indexados como na maioria das linguagens. O objetivo da existência do tipo string na linguagem é apenas fornecer uma maneira de apresentar (escrever) mensagens na tela. 

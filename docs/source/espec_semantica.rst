@@ -4,7 +4,9 @@ Especificação Semântica
 Programa
 ========
 
-A última declaração deve ser obrigatoriamente a da rotina principal, pela qual se dará o início da execução do programa. Todas as declarações realizadas no programa (fora de qualquer subprograma) estão dentro do escopo global. 
+* Um programa consiste de uma sequência de declarações. A última declaração deve ser obrigatoriamente a da rotina principal, pela qual se dará o início da execução do programa. Essa declaração deve ser de uma função chamada ``main`` com retorno do tipo ``int``. O valor retornado por esta função representa o resultado da execução do programa, onde ``0`` significa que a execução foi bem sucedida.
+
+* Todas as declarações realizadas no programa (fora de qualquer subprograma) estão dentro do escopo global. 
 
 Declaração
 ==========
@@ -13,10 +15,8 @@ Declaração de variáveis, funções e procedimentos são responsáveis por adi
 
 Caso a declaração de uma variável contenha a inicialização da mesma, o tipo da expressão de inicialização deve ser o mesmo da variável. 
 
-A última declaração global deve ser de uma função chamada "main" do tipo int. 
-
-Comandos:
-=========
+Comandos
+========
 
 
 If
@@ -73,7 +73,7 @@ Chamada de procedimento
 Atribuição 
 ----------
 
-* O lado esquerdo da atribuição deve ser uma variável declarada e visível no escopo atual (simples ou acesso de array) 
+* O lado esquerdo da atribuição deve ser uma variável declarada e visível no escopo atual (simples ou acesso de array).
 
 * O lado direito deve ser uma expressão com tipo igual ao da variável do lado esquerdo da atribuição. 
 
@@ -85,23 +85,23 @@ Bloco
 Expressões 
 ----------
 
-Aritmética (``+ - * / % neg``) 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Aritmética: ``+``, ``-``,  ``*``, ``/``, ``%``, ``neg``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 * O(s) operando(s) devem ser do tipo inteiro. O tipo resultante é inteiro. 
 
-Relacional (``> >= < <=``)
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+Relacional: ``>``, ``>=``, ``<``, ``<=``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 * Os operandos devem ser do tipo inteiro. O tipo resultante é lógico. 
 
-Igualdade (``== !=``)
-~~~~~~~~~~~~~~~~~~~~~
+Igualdade: ``==``, ``!=``
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 * Os operandos devem ser do mesmo tipo. O tipo resultante é lógico. 
 
-Lógica (``&& || !``)
-~~~~~~~~~~~~~~~~~~~~
+Lógica: ``&&``, ``||``, ``!``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 * O(s) operando(s) devem ser do tipo lógico. O tipo resultante é lógico. 
 
@@ -117,7 +117,9 @@ Ternária
 Uso de variável
 ~~~~~~~~~~~~~~~
 
-* A variável deve estar declarada e visível no escopo atual. O tipo resultante é o tipo declarado da variável. 
+* A variável deve estar declarada e visível no escopo atual. O tipo resultante é o tipo declarado da variável.
+
+* No caso de variáveis agregadas, a expressão que resulta no índice a ser acessado deve ser do tipo inteira. 
 
 Chamada de função
 ~~~~~~~~~~~~~~~~~ 

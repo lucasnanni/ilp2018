@@ -15,15 +15,6 @@ Variáveis
 
 Existem dois tipos de variáveis: as simples e as agregadas. Variáveis simples suportam apenas um único valor de um determinado tipo primitivo em um determinado momento. Variáveis agregadas são de tipos agregados (arranjos), suportando mais de um valor de um mesmo tipo em um determinado momento. 
 
-**Exemplo:**
-
-::
-
-    var a, b = 3, c = 2 + b: int; 
-    var str1, str2 = "String 2": string; 
-    var i, j = true: bool; 
-    var x, v[10], z[3] = {1, 5, 8}: int; 
-
 Declaração de Variáveis
 ----------------------- 
 
@@ -34,18 +25,39 @@ Declaração de Variáveis
     specVar ::= specVarSimples | specVarSimplesIni |  
                 specVarArranjo | specVarArranjoIni 
 
+**Exemplo:**
+
+::
+
+    var a, b = 3, c = 2 + b: int; 
+    var str1, str2 = "String 2": string; 
+    var i, j = true: bool; 
+    var x, v[10], z[3] = {1, 5, 8}: int; 
+
 Observe que a declaração de variáveis é indicada pela palavra reservada var. Observe também que múltiplas variáveis podem ser declaradas de uma vez e que elas podem ser inicializadas durante a declaração.  
 
-Na declaração de arranjos, o tamanho do mesmo deve ser especificado como um literal numérico.
+Na declaração de arranjos, o tamanho da estrutura deve ser especificada como um literal numérico.
 
 Subprogramas (procedimentos e funções) 
 ======================================
 
-A definição de procedimentos e funções possui uma sintaxe comum, exceto pela ausência do tipo de retorno para procedimentos. Diferentemente da linguagem C, por exemplo, não há separação entre declaração e definição de subprogramas, isto é, o subprograma é declarado durante sua própria definição. 
+A definição de procedimentos e funções possui uma sintaxe comum, exceto pela ausência do tipo de retorno para procedimentos. Não há separação entre declaração e definição de subprogramas, isto é, o subprograma deve ser definido durante sua própria declaração. 
 
-**Exemplos:**
+Declaração de Subprogramas
+--------------------------
 
-Declaração de Procedimento
+::
+
+    decSub ::= decProc | decFunc 
+
+Declaração de procedimento
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+::
+
+    decProc ::= 'def' id '(' [listaParâmetros] ')' bloco 
+
+**Exemplo**
 
 ::
 
@@ -56,7 +68,14 @@ Declaração de Procedimento
         x = 2 * y; // x é global! 
     }
 
-Declaração de Função
+Declaração de função
+~~~~~~~~~~~~~~~~~~~~
+
+::
+
+    decFunc ::= 'def' id '(' [listaParâmetros] ')' ':' tipo bloco
+
+**Exemplo**
 
 ::
 
@@ -65,19 +84,10 @@ Declaração de Função
         return a + 1; 
     }
 
-Declaração de Subprogramas::
+Lista de Parâmetros
+~~~~~~~~~~~~~~~~~~~
 
-    decSub ::= decProc | decFunc 
-
-Declaração de procedimento::
-
-    decProc ::= 'def' id '(' [listaParâmetros] ')' bloco 
-
-Declaração de função::
-
-    decFunc ::= 'def' id '(' [listaParâmetros] ')' ':' tipo bloco 
-
-Lista de Parâmetros::
+::
 
     listaParâmetros ::= specParams {';' specParams}
     specParams ::= param {',' param} ':' tipo
@@ -94,7 +104,7 @@ Um comando pode ser um comando simples ou bloco de comandos.
 
     comando ::= cmdSimples | bloco 
 
-A seguir são relacionados os comandos simples da linguagem: 
+A seguir são especificados os comandos simples e de bloco: 
 
 Atribuição:
 -----------
@@ -104,7 +114,7 @@ Atribuição:
     cmdAtrib ::= atrib ';' 
     atrib ::= variável ('='|'+='|'-='|'*='|'/='|'%=') expressão 
 
-O comando de atribuição avalia o valor da expressão e o armazena na variável. Uma atribuição somente pode ocorrer se a variável foi previamente declarada e se o tipo do resultado da expressão é o mesmo indicado na declaração da variável. 
+O comando de atribuição avalia o valor da expressão e o armazena na variável.
 
 As atribuições compostas devem ser traduzidas da seguinte maneira:  
 
@@ -192,7 +202,7 @@ Saída Write:
 Bloco
 -----
 
-Um bloco é uma sequência de (nenhuma ou várias) declarações de subprogramas e variáveis seguida de uma sequência de (nenhum ou vários) comandos. Um bloco é circundado por chaves { }. 
+Um bloco é uma sequência de (nenhuma ou várias) declarações de subprogramas e variáveis seguida de uma sequência de (nenhum ou vários) comandos. Um bloco é circundado por chaves ``{`` ``}``.
 
 ::
 
@@ -205,27 +215,27 @@ Uma expressão pode conter valores dos três tipos definidos (inteiros, lógicos
 
 .. table:: Tabela de Operadores
 
-    +-------------+-----------+------------------------------------------------------+-----------------+
-    | Precedência | Operador  | Descrição                                            | Associatividade |
-    +=============+===========+======================================================+=================+
-    | 1           | ``\-``    | Negativo Unário                                      | À direita       |
-    +-------------+-----------+------------------------------------------------------+-----------------+
-    | 2           | ``* / %`` | Multiplicação, divisão e resto                       |                 |
-    +-------------+-----------+------------------------------------------------------+                 |
-    | 3           | ``+ -``   | Adição e subtração                                   |                 |
-    +-------------+-----------+------------------------------------------------------+                 |
-    |             | ``< <=``  | Operadores relacionais ``<`` e ``≤`` respectivamente |                 |
-    + 4           +-----------+------------------------------------------------------+ À esquerda      |
-    |             | ``> >=``  | Operadores relacionais ``>`` e ``≥`` respectivamente |                 |
-    +-------------+-----------+------------------------------------------------------+                 |
-    | 5           | ``== !=`` | Operadores relacionais ``=`` e ``≠`` respectivamente |                 |
-    +-------------+-----------+------------------------------------------------------+                 |
-    | 6           | ``&&``    | E lógico                                             |                 |
-    +-------------+-----------+------------------------------------------------------+                 |
-    | 7           | ``||``    | OU lógico                                            |                 |
-    +-------------+-----------+------------------------------------------------------+-----------------+
-    | 8           | ``? :``   | Condicional ternário                                 | À direita       |
-    +-------------+-----------+------------------------------------------------------+-----------------+
+    +-------------+---------------------+------------------------------------------------------+-----------------+
+    | Precedência | Operador            | Descrição                                            | Associatividade |
+    +=============+=====================+======================================================+=================+
+    | 1           | ``-``               | Negativo Unário                                      | À direita       |
+    +-------------+---------------------+------------------------------------------------------+-----------------+
+    | 2           | ``*``, ``/``, ``%`` | Multiplicação, divisão e resto                       |                 |
+    +-------------+---------------------+------------------------------------------------------+                 |
+    | 3           | ``+`, ``-``         | Adição e subtração                                   |                 |
+    +-------------+---------------------+------------------------------------------------------+                 |
+    |             | ``<``, ``<=``       | Operadores relacionais ``<`` e ``≤`` respectivamente |                 |
+    | 4           +---------------------+------------------------------------------------------+ À esquerda      |
+    |             | ``>``, ``>=``       | Operadores relacionais ``>`` e ``≥`` respectivamente |                 |
+    +-------------+---------------------+------------------------------------------------------+                 |
+    | 5           | ``==``, ``!=``      | Operadores relacionais ``=`` e ``≠`` respectivamente |                 |
+    +-------------+---------------------+------------------------------------------------------+                 |
+    | 6           | ``&&``              | E lógico                                             |                 |
+    +-------------+---------------------+------------------------------------------------------+                 |
+    | 7           | ``||``              | OU lógico                                            |                 |
+    +-------------+---------------------+------------------------------------------------------+-----------------+
+    | 8           | ``? :``             | Condicional ternário                                 | À direita       |
+    +-------------+---------------------+------------------------------------------------------+-----------------+
 
 O operador condicional ternário é formado da seguinte maneira:  
 
@@ -233,7 +243,11 @@ O operador condicional ternário é formado da seguinte maneira:
 
     opTern ::= expressão-teste '?' expressão-então ':' expressão-senão 
 
-A expressão teste é avaliada. Se o resultado for true a expressão então é resultada, caso contrário, a expressão senão é resultada. Dessa forma, o resultado desse operador é sempre uma expressão. O operador pode ser utilizado assim: ``x = a > 0 ? a * 2 : a + 1;``
+A expressão teste é avaliada. Se o resultado for true a expressão então é resultada, caso contrário, a expressão senão é resultada. Dessa forma, o resultado desse operador é sempre uma expressão. O operador pode ser utilizado assim: 
+
+::
+
+    x = a > 0 ? a * 2 : a + 1;
 
 Uso de variável
 ---------------
