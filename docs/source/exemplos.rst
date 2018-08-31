@@ -17,7 +17,7 @@ Bubble-Sort
         
         while (i < n-1 && trocou) { 
             trocou = false; 
-            for (j=0; j<(n-i-1); j++) { 
+            for (j=0; j<(n-i-1); j+=1) { 
                 if (v[j] > v[j+1]) { 
                     var aux = v[j]: int; 
                     v[j] = v[j+1]; 
@@ -34,7 +34,7 @@ Bubble-Sort
         
         write "Digite os valores do arranjo:\n"; 
         
-        for (i=0; i<10; i++) { 
+        for (i=0; i<10; i+=1) { 
             write "A[", i, "] = "; 
             read v[i]; 
         } 
@@ -43,7 +43,7 @@ Bubble-Sort
 
         write "Arranjo ordenado:\nA = "; 
 
-        for (i=0; i<10; i++) { 
+        for (i=0; i<10; i+=1) { 
             write v[i], " "; 
         } 
 

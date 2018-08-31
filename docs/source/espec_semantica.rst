@@ -13,7 +13,7 @@ Declaração
 
 Declaração de variáveis, funções e procedimentos são responsáveis por adicionar os símbolos envolvidos e suas vinculações na tabela de símbolos. 
 
-Caso a declaração de uma variável contenha a inicialização da mesma, o tipo da expressão de inicialização deve ser o mesmo da variável. 
+Caso a declaração de uma variável considere sua inicialização, o tipo da expressão de inicialização deve ser o mesmo da variável. 
 
 Comandos
 ========
@@ -22,29 +22,29 @@ Comandos
 If
 --
 
-* A expressão condicional do comando if deve resultar em um valor do tipo lógico. 
+* A expressão condicional do comando ``if`` deve resultar em um valor do tipo lógico. 
 
 While
 -----
 
-* A expressão condicional do comando while deve resultar em um valor do tipo lógico. 
+* A expressão condicional do comando ``while`` deve resultar em um valor do tipo lógico. 
 
 For
 ---
 
-* As atribuições da inicialização e do passo devem ser analisadas como um comando de atribuição normal 
+* As atribuições de inicialização e passo devem ser analisadas como um comando de atribuição normal. 
 
-* A expressão condicional deve resultar em um valor do tipo lógico. 
+* A expressão condicional deve resultar em um valor do tipo lógico.
 
 Stop 
 ----
 
-* O comando stop só pode aparecer dentro de um comando de repetição (while ou for). 
+* O comando ``stop`` deve estar cercado (diretamente ou indiretamente) por um comando de repetição (while ou for). 
 
 Skip 
 ----
 
-* O comando skip só pode aparecer dentro de um comando de repetição (while ou for). 
+* O comando ``skip`` deve estar cercado (diretamente ou indiretamente) por um comando repetição (while ou for). 
 
 Return 
 ------
@@ -83,30 +83,30 @@ Bloco
 * Define um novo escopo estático. O escopo é criado no início do bloco e finalizado no término do bloco. 
 
 Expressões 
-----------
+==========
 
 Aritmética: ``+``, ``-``,  ``*``, ``/``, ``%``, ``neg``
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-------------------------------------------------------
 
 * O(s) operando(s) devem ser do tipo inteiro. O tipo resultante é inteiro. 
 
 Relacional: ``>``, ``>=``, ``<``, ``<=``
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+----------------------------------------
 
 * Os operandos devem ser do tipo inteiro. O tipo resultante é lógico. 
 
 Igualdade: ``==``, ``!=``
-~~~~~~~~~~~~~~~~~~~~~~~~~
+-------------------------
 
-* Os operandos devem ser do mesmo tipo. O tipo resultante é lógico. 
+* Os operandos devem ser do mesmo tipo primitivo. O tipo resultante é lógico. 
 
 Lógica: ``&&``, ``||``, ``!``
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-----------------------------
 
 * O(s) operando(s) devem ser do tipo lógico. O tipo resultante é lógico. 
 
 Ternária
-~~~~~~~~
+--------
 
 * A expressão condicional deve resultar um valor do tipo lógico. 
 
@@ -115,14 +115,14 @@ Ternária
 * O tipo resultante é o mesmo tipo da expressão consequente. 
 
 Uso de variável
-~~~~~~~~~~~~~~~
+---------------
 
 * A variável deve estar declarada e visível no escopo atual. O tipo resultante é o tipo declarado da variável.
 
-* No caso de variáveis agregadas, a expressão que resulta no índice a ser acessado deve ser do tipo inteira. 
+* Para variáveis agregadas, a expressão que resulta no índice a ser acessado deve ser do tipo inteiro. 
 
 Chamada de função
-~~~~~~~~~~~~~~~~~ 
+-----------------
 
 * Análise análoga à chamada de procedimento. 
 
