@@ -249,6 +249,14 @@ A expressão teste é avaliada. Se o resultado for true a expressão então é r
 
     x = a > 0 ? a * 2 : a + 1;
 
+O operador condicional ternário terá associatividade à direita, ilustrado no exemplo abaixo, onde a expressão ``b > 0 ? a / b : a + b`` é uma expressão-senão, como em C e C++, ao invés de tratar a expressão ``a > 0 ? a * 2 : b > 0`` como expressão-teste, como em PHP.
+
+::
+
+    x = a > 0 ? a * 2 : b > 0 ? a / b : a + b;
+    x = a > 0 ? a * 2 : (b > 0 ? a / b : a + b); // A. Direita (C, C++)
+    x = (a > 0 ? a * 2 : b > 0) ? a / b : a + b; // A. Esquerda (PHP)
+
 Uso de variável
 ---------------
 
