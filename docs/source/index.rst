@@ -1,5 +1,5 @@
-Especificação da Linguagem [?]
-==============================
+Especificação da Linguagem Grace
+================================
 
 .. toctree::
    :maxdepth: 2

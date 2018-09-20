@@ -33,7 +33,7 @@ Lógicos
 Os literais lógicos verdadeiro e falso são representados pelos lexemas ``true`` e ``false`` respectivamente.
 
 Comentários
------------
+===========
 
 A linguagem possui apenas comentários de linha:
 
@@ -42,7 +42,7 @@ A linguagem possui apenas comentários de linha:
 De forma geral, os comentários podem conter qualquer tipo de símbolo, inclusive os não permitidos pela linguagem. Os comentários devem ser processados corretamente pelo analisador léxico e em seguida descartados.
 
 Palavras reservadas e símbolos
-------------------------------
+==============================
 
 * Palavras reservadas: ``bool`` ``def`` ``else`` ``false`` ``for`` ``if`` ``int`` ``read`` ``return`` ``skip`` ``stop`` ``string`` ``true`` ``var`` ``while`` ``write``
 
